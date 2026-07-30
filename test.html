@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test</title>
+    <link rel="stylesheet" href="./css/customeStyle.css" />
+    <script
+      src="https://kit.fontawesome.com/cccffbd662.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body style="background-color: aquamarine">
+    <div class="btns">
+      <button id="btn1">Success</button>
+      <button id="btn2">Error</button>
+      <button id="btn3">Invalid</button>
+    </div>
+
+    <div class="toast-message-section"></div>
+
+    <script>
+      const messageBox = document.querySelector(".toast-message-section");
+      let success = document.getElementById("btn1");
+      let error = document.getElementById("btn2");
+      let invalid = document.getElementById("btn3");
+
+      success.addEventListener("click", () => {
+        console.log("xl");
+
+        let message = "Success";
+        let icon = '<i class="fa-solid fa-circle-check"></i>';
+        let color = "green";
+        showToast(message, icon, color);
+      });
+
+      function showToast(message, icon, color) {
+        console.log("clicked");
+        let toast = document.createElement("div");
+
+        toast.classList.add("toast");
+        toast.innerHTML = `${icon}${message}`;
+        messageBox.appendChild(toast);
+        let i = toast.querySelector("i");
+        i.setAttribute("style", `color:${color}`);
+        toast.style.setProperty("--after-color", `${color}`);
+
+        setTimeout(() => {
+          messageBox.removeChild(toast);
+        }, 4000);
+      }
+
+      error.addEventListener("click", () => {
+        let message = "Error";
+        let icon = `<i class="fa-solid fa-circle-xmark"></i>`;
+        let color = "red";
+        showToast(message, icon, color);
+      });
+      invalid.addEventListener("click", () => {
+        let message = "Invalid";
+        let icon = `<i class="fa-solid fa-circle-exclamation"></i>`;
+        let color = "orange";
+        showToast(message, icon, color);
+      });
+    </script>
+  </body>
+</html>

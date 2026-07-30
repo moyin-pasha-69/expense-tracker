@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+@layer components {
+  .symbol {
+    @apply mx-1;
+  }
+  .btn-style {
+    @apply hover:bg-[#97B182] rounded-3xl py-2 px-4 font-bold text-lg text-white bg-[#548866] cursor-pointer;
+  }
+  .form-items label {
+    @apply font-bold text-xl text-[#e9d4c3];
+  }
+  .form-items input {
+    @apply border-none outline-none bg-[#2B5748] text-white px-4 py-2 rounded-3xl placeholder:text-gray-400 placeholder:bg-[#2B5748];
+  }
+  .form-items select {
+    @apply border-none outline-none bg-[#2B5748] text-white px-2  py-2 rounded-3xl placeholder:text-gray-400 placeholder:bg-[#2B5748];
+  }
+  .form-items textarea {
+    @apply bg-[#2B5748] text-white px-4 py-2 rounded-md font-bold text-lg;
+  }
+  .overlay {
+    @apply fixed inset-0 top-0 left-0 right-0 bottom-0 bg-black/60 w-full h-screen
+      z-0;
+  }
+  .add-trans-form {
+    @apply bg-[#9CB080] max-w-md sm:max-w-xl w-full sm:mx-auto rounded-xl sm:p-4 fixed inset-0 z-40 shadow-[0px_0px_8px_black] top-[4%] h-[680px] sm:h-[550px] mr-2 ml-1;
+  }
+
+  #trans-cart-section {
+    @apply grid grid-cols-1  sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4;
+  }
+  .trans-cart {
+    @apply bg-[#10584A]  max-w-sm w-auto rounded-2xl text-left px-3 py-4 font-bold text-white;
+  }
+  .trans-cart-hover-effect {
+    @apply hover:-translate-y-2 hover:transition-transform hover:duration-500 hover:ease-out;
+  }
+
+  .trans-cart p {
+    @apply mb-4;
+  }
+
+  .trans-cart span {
+    @apply bg-yellow-300 text-[#000080] px-1 rounded-xs;
+  }
+
+  .trans-cart #trans-desc {
+    @apply block rounded-xs;
+  }
+
+  .cancel-btn {
+    @apply hover:scale-[0.8];
+  }
+}

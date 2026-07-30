@@ -1,0 +1,61 @@
+/* * {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+} */
+
+.toast-message-section {
+  font-family: "Poppins", sans-serif;
+  height: 60px;
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: auto;
+  padding: 20px;
+}
+
+.toast {
+  color: #1c1c1e;
+  width: 100%;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  /* background: white; */
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  border-radius: 10px;
+  padding: 10px 15px;
+  font-size: 16px;
+  font-weight: 600;
+  overflow: hidden;
+  margin: 25px 0;
+  position: relative;
+}
+
+.toast i {
+  margin-right: 10px;
+  /* color: green; */
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.toast::after {
+  content: "";
+  width: 100%;
+  height: 5px;
+  background: var(--after-color, green);
+  animation: timer 4s linear forwards;
+  border-radius: 14px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+@keyframes timer {
+  100% {
+    width: 0;
+  }
+}
