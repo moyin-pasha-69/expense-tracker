@@ -31,6 +31,8 @@ export function greet() {
     greetMessage.innerHTML = "Good Afternoon";
   } else if (time >= 17 && time < 24) {
     greetMessage.innerHTML = "Good Evening";
+  } else {
+    greetMessage.innerHTML = "Good Night";
   }
 }
 
