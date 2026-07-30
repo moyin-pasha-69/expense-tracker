@@ -7,6 +7,8 @@ export const incomeAmt = document.querySelector(".income-amt");
 export const savingBal = document.querySelector(".saving-amt");
 export const expenseBal = document.querySelector(".expense-amt");
 const addTransBtn = document.querySelector(".add-trans-btn");
+const searchBox = document.querySelector(".search-box");
+const searchBoxBtn = document.querySelector(".search-box button");
 
 export function updateTransBalAmt() {
   incomeAmt.innerHTML = 0;

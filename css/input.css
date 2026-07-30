@@ -52,4 +52,15 @@
   .cancel-btn {
     @apply hover:scale-[0.8];
   }
+
+  .search-box {
+    @apply bg-[#10584A] sm:rounded-3xl rounded-full sm:max-w-[250px]  max-w-[400px] w-full flex justify-center items-center px-4 py-2   text-[#FDFBF7];
+  }
+  .search-box input {
+    @apply w-full mr-2 outline-none;
+  }
+
+  .search-box i {
+    @apply text-xl;
+  }
 }
