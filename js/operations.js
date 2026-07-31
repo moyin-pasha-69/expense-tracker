@@ -2,10 +2,14 @@ const messageBox = document.querySelector(".toast-message-section");
 const greetMessage = document.querySelector(".greet-message");
 
 export function capitalizeWords(text) {
-  return text
-    .split(" ")
-    .map((word) => word[0].toUpperCase() + word.slice(1))
-    .join(" ");
+  if (text === "") return;
+  else
+    return text
+      .replace(/\s+/g, " ")
+      .trim()
+      .split(" ")
+      .map((word) => word[0].toUpperCase() + word.slice(1))
+      .join(" ");
 }
 
 export function showToast(message, icon, color) {
@@ -31,6 +35,8 @@ export function greet() {
     greetMessage.innerHTML = "Good Afternoon";
   } else if (time >= 17 && time < 24) {
     greetMessage.innerHTML = "Good Evening";
+  } else {
+    greetMessage.innerHTML = "Good night";
   }
 }
 
