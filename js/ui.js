@@ -4,6 +4,7 @@ import * as operation from "./operations.js";
 
 let formSection = document.getElementById("add-trans-form-section");
 let setCartData = document.getElementById("trans-cart-section");
+export const emptyResult = document.querySelector(".empty-result-section");
 
 export function addTransForm() {
   formSection.classList.remove("hidden");
@@ -107,14 +108,14 @@ export function addTransForm() {
       Type: type.value,
       Category: category.value,
       Date: date.value,
-      Description: description.value.trim(),
+      Description: operation.capitalizeWords(description.value.trim()),
     };
 
     if (checkIsPossible(trans)) {
       storage.transList.push(trans);
       storage.addToLocalStorage(storage.transList);
       successToast("Transaction added Successfully!");
-      renderCartData();
+      renderCartData(storage.transList);
     }
     form.reset();
     overlay.remove();
@@ -135,27 +136,38 @@ function createFormItems(data) {
     .join("");
 }
 
-export function renderCartData() {
+export function renderCartData(transList) {
   setCartData.innerHTML = "";
 
-  storage.transList.forEach((trans, index) => {
-    const div = document.createElement("div");
-    div.classList.add("trans-cart");
-    div.classList.add("trans-cart-hover-effect");
-    const date = new Date(trans.Date);
-    const month = storage.monthName[date.getMonth()];
-    const day = date.getDate();
-
-    const type = operation.capitalizeWords(trans.Type);
-    const category = operation.capitalizeWords(trans.Category);
-    let desc;
-    if (trans.Description === "") {
-      desc = "Empty";
-    } else {
-      desc = operation.capitalizeWords(trans.Description);
+  if (transList === "empty") {
+    emptyResult.innerHTML = "";
+    emptyResult.classList.remove("hidden");
+    let empty = document.createElement("p");
+    empty.classList.add("empty-search");
+    empty.innerHTML = "Zero Result Found!";
+    emptyResult.appendChild(empty);
+  } else {
+    if (!emptyResult.className.includes("hidden")) {
+      emptyResult.classList.add("hidden");
     }
+    transList.forEach((trans, index) => {
+      const div = document.createElement("div");
+      div.classList.add("trans-cart");
+      div.classList.add("trans-cart-hover-effect");
+      const date = new Date(trans.Date);
+      const month = storage.monthName[date.getMonth()];
+      const day = date.getDate();
 
-    div.innerHTML = `
+      const type = operation.capitalizeWords(trans.Type);
+      const category = operation.capitalizeWords(trans.Category);
+      let desc;
+      if (trans.Description === "") {
+        desc = "Empty";
+      } else {
+        desc = operation.capitalizeWords(trans.Description.toLowerCase());
+      }
+
+      div.innerHTML = `
           <h2 class="text-center text-[#910000] font-bold text-2xl mb-6">
             Transaction
           </h2>
@@ -175,13 +187,14 @@ export function renderCartData() {
           </div>
           <button class="btn-style w-full">Delete</button>
   `;
-    setCartData.appendChild(div);
-    const cartDeleteBtn = div.querySelector("button");
+      setCartData.appendChild(div);
+      const cartDeleteBtn = div.querySelector("button");
 
-    cartDeleteBtn.addEventListener("click", () => {
-      removeFromMemory(trans.Id);
+      cartDeleteBtn.addEventListener("click", () => {
+        removeFromMemory(trans.Id);
+      });
     });
-  });
+  }
 }
 
 function removeFromMemory(data) {
@@ -189,6 +202,7 @@ function removeFromMemory(data) {
 
   storage.addToLocalStorage(updatedList);
   infoToast("Transaction deleted Successfully!");
+  renderCartData(storage.transList);
 }
 
 function ErrorToast(x) {

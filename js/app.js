@@ -7,8 +7,6 @@ export const incomeAmt = document.querySelector(".income-amt");
 export const savingBal = document.querySelector(".saving-amt");
 export const expenseBal = document.querySelector(".expense-amt");
 const addTransBtn = document.querySelector(".add-trans-btn");
-const searchBox = document.querySelector(".search-box");
-const searchBoxBtn = document.querySelector(".search-box button");
 
 export function updateTransBalAmt() {
   incomeAmt.innerHTML = 0;
@@ -43,9 +41,33 @@ function updateIncomeAmt() {
   currentAmt.innerHTML = Number(incomeAmt.innerHTML);
 }
 
+function searchHandler(e) {
+  let changedList = storage.transList.filter((item) => {
+    return item.Description.includes(
+      operation.capitalizeWords(e.target.value.trim()),
+    );
+  });
+
+  if (operation.capitalizeWords(e.target.value.trim()) === undefined) {
+    ui.renderCartData(storage.transList);
+  } else if (!changedList.length) {
+    ui.renderCartData("empty");
+  } else {
+    ui.renderCartData(changedList);
+  }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
+  const searchBoxBtn = document.querySelector(".search-box button");
+  const searchBoxForm = document.querySelector(".search-box");
+  const searchInput = document.getElementById("search-input");
+
+  searchInput.addEventListener("input", (e) => searchHandler(e));
+  searchBoxForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+  });
   operation.greet();
-  ui.renderCartData();
+  ui.renderCartData(storage.transList);
   updateTransBalAmt();
   addTransBtn.addEventListener("click", ui.addTransForm);
 });

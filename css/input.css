@@ -63,4 +63,8 @@
   .search-box i {
     @apply text-xl;
   }
+
+  .empty-search {
+    @apply text-[#004225] font-bold text-3xl flex justify-center  w-full h-[400px] items-center;
+  }
 }

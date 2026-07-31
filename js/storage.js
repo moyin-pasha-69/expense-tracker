@@ -39,5 +39,5 @@ export function addToLocalStorage(trans) {
   localStorage.setItem("cart", JSON.stringify(trans));
   transList = JSON.parse(localStorage.getItem("cart"));
   app.updateTransBalAmt();
-  ui.renderCartData();
+  // ui.renderCartData();
 }
