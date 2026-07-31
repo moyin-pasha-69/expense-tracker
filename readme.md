@@ -8,7 +8,7 @@ This application helps users manage their income and expenses, track their curre
 
 ## 🚀 Live Demo
 
-🔗 https://your-vercel-link.vercel.app
+🔗 https://moyin-pasha-69.github.io/expense-tracker/
 
 ---
 
@@ -28,7 +28,7 @@ This application helps users manage their income and expenses, track their curre
 
 ### Mobile View
 
-![Mobile](./preview/mobile-look.png)
+![Mobile](./preview/mobile_look.png)
 
 ---
 
