@@ -1,407 +1,143 @@
-I really like this project because it looks simple at first, but it gradually becomes a complete application. You'll practice thinking like a software developer instead of just displaying data.
+# 💰 Expense Tracker
 
-# 💰 Expense Tracker Dashboard
+A modern, responsive, and user-friendly **Expense Tracker** built with **HTML5**, **Tailwind CSS**, and **Vanilla JavaScript**.
 
-Imagine you open the app every morning.
-
-The dashboard immediately tells you:
-
-```
-Good Evening, Moyin 👋
-
-Current Balance
-₹18,450
-
-Income
-₹30,000
-
-Expenses
-₹11,550
-
-Savings
-₹18,450
-```
-
-Below that you can see graphs, recent transactions, budgets, and spending insights.
+This application helps users manage their income and expenses, track their current balance, search transactions instantly, and store data locally without requiring a backend.
 
 ---
 
-# What problem does it solve?
+## 🚀 Live Demo
 
-People usually don't know:
-
-- Where their money goes
-- How much they spend on food
-- How much they save
-- Which category wastes the most money
-
-Your app solves that.
+🔗 https://your-vercel-link.vercel.app
 
 ---
 
-# Core Features (Phase 1)
+## 📸 Preview
 
-## 1. Add Transaction
+### Home
 
-User fills a form
+![Home](./preview/home.png)
 
-```
-Amount
-₹500
+### Add Transaction
 
-Category
-Food
+![Add Transaction](./preview/add-transaction.png)
 
-Type
-Expense
+### Search
 
-Date
-21 July 2026
+![Search](./preview/search.png)
 
-Description
-Pizza
-```
+### Mobile View
 
-Click
-
-```
-Add Transaction
-```
-
-Now it appears in the list.
+![Mobile](./preview/mobile-look.png)
 
 ---
 
-## 2. Transaction List
+## ✨ Features
 
-```
-₹500
-Food
-Expense
-21 Jul
-
-Delete
-```
-
-```
-₹25,000
-Salary
-Income
-20 Jul
-
-Delete
-```
-
-Newest transaction should appear first.
+- 💵 Add Income Transactions
+- 💸 Add Expense Transactions
+- 🗑️ Delete Transactions
+- 🔍 Live Search
+- 💾 Local Storage Support
+- 📊 Real-Time Balance Calculation
+- 🌞 Greeting Based on Local Time
+- 🔔 Beautiful Toast Notifications
+- 📱 Responsive Design
+- ⚡ Modular JavaScript Architecture
 
 ---
 
-## 3. Dashboard Cards
+## 🛠️ Tech Stack
 
-At the top
+### Frontend
 
-```
-Balance
+- HTML5
+- Tailwind CSS v4
+- Vanilla JavaScript (ES6 Modules)
 
-₹18,450
-```
+### Storage
 
-```
-Income
+- Local Storage API
 
-₹30,000
-```
+### Deployment
 
-```
-Expense
+- Vercel
 
-₹11,550
-```
+### Version Control
 
-```
-Savings
-
-₹18,450
-```
-
-These should update automatically.
+- Git
+- GitHub
 
 ---
 
-## 4. Categories
-
-```
-Food
-
-Transport
-
-Shopping
-
-Rent
-
-Bills
-
-Entertainment
-
-Education
-
-Health
-
-Salary
-
-Freelance
-```
-
-Later allow users to add custom categories.
-
----
-
-# Phase 2
-
-## Search
-
-```
-Search...
-
-Pizza
-```
-
-Shows only matching transactions.
-
----
-
-## Filter
-
-```
-All
-
-Income
-
-Expense
-```
-
-or
-
-```
-Food
-
-Shopping
-
-Bills
-```
-
----
-
-## Sort
-
-```
-Newest
-
-Oldest
-
-Highest Amount
-
-Lowest Amount
-```
-
----
-
-# Phase 3
-
-Analytics
-
-Instead of only numbers...
-
-Show charts.
-
-Example
-
-```
-Food
-██████████ 40%
-
-Shopping
-████ 18%
-
-Rent
-██████ 25%
-
-Others
-██ 17%
-```
-
-You'll later replace these with actual charts.
-
----
-
-# Monthly Report
-
-```
-July
-
-Income
-
-₹40,000
-
-Expense
-
-₹23,500
-
-Saved
-
-₹16,500
-```
-
----
-
-# Budget
-
-User sets
-
-```
-Food Budget
-
-₹4,000
-```
-
-Current spending
-
-```
-₹3,650
-```
-
-Progress
-
-```
-█████████░
-91%
-```
-
-If spending exceeds the budget
-
-```
-⚠ Budget Exceeded
-```
-
----
-
-# Local Storage
-
-Nothing should disappear after refreshing the page.
-
-You'll save transactions like this:
-
-```js
-[
-  {
-    id: 1,
-    amount: 500,
-    type: "expense",
-    category: "Food",
-    description: "Pizza",
-    date: "2026-07-21",
-  },
-  {
-    id: 2,
-    amount: 25000,
-    type: "income",
-    category: "Salary",
-    description: "Monthly Salary",
-    date: "2026-07-20",
-  },
-];
-```
-
----
-
-# Project Structure
-
-```
-Expense Tracker
-
-index.html
-
-css/
-    style.css
-
-js/
-    app.js
-    ui.js
-    storage.js
-    analytics.js
-
-assets/
-```
-
-As the project grows, you can add more modules.
-
----
-
-# Skills You'll Practice
-
-✅ CRUD (Create, Read, Update, Delete)
-
-✅ Forms
-
-✅ Validation
-
-✅ Array methods
-
-- filter()
-- map()
-- reduce()
-- sort()
-
-✅ Local Storage
-
-✅ Project architecture
-
-✅ Dashboard UI
-
-✅ Search & Filtering
-
-✅ Analytics
-
-✅ Date handling
-
----
-
-# The Thinking Challenge
-
-The most valuable part isn't writing the code—it's designing how everything connects.
-
-For example, if someone adds this transaction:
+## 📂 Folder Structure
 
 ```text
-₹800
-Food
-Expense
+Expense-Tracker/
+│
+├── assets/
+├── css/
+├── js/
+├── preview/
+├── index.html
+├── package.json
+├── package-lock.json
+└── README.md
 ```
-
-Ask yourself:
-
-- Where should this data be stored?
-- How will I generate a unique ID?
-- How will I save it in Local Storage?
-- How will I update the transaction list?
-- How will I recalculate the balance?
-- How will I update the dashboard cards?
-- How will I update the charts?
-- How will I keep everything synchronized after deleting a transaction?
-
-Those questions are what real developers think about before they start coding.
 
 ---
 
-## My suggestion for how to build it
+## 🎯 What I Learned
 
-Don't try to build everything at once. Break it into small milestones:
+During this project, I practiced and improved my skills in:
 
-1. **Transaction management** — add, display, delete, and save transactions.
-2. **Dashboard calculations** — balance, income, expenses, and savings.
-3. **Search, filter, and sort**.
-4. **Budgets and spending alerts**.
-5. **Analytics and charts**.
-6. **Polish** — responsive design, animations, dark mode, and keyboard shortcuts.
+- ES6 Modules
+- DOM Manipulation
+- Event Handling
+- Dynamic UI Rendering
+- CRUD Operations
+- Array Methods (`map`, `filter`, `reduce`)
+- Local Storage
+- Form Validation
+- Responsive Web Design
+- Git & GitHub Workflow
 
-By the end, you'll have a portfolio project that demonstrates much more than just API calls—it shows you can design, organize, and build a complete frontend application.
+---
+
+## 🔮 Future Improvements
+
+- ✏️ Edit Transactions
+- 📅 Filter by Date
+- 📈 Charts & Analytics
+- 🌙 Dark Mode
+- 📤 Export to CSV
+- ☁️ Backend Integration
+- 🔐 User Authentication
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome!
+
+Feel free to fork this repository and submit a pull request.
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License.
+
+---
+
+## 👨‍💻 Author
+
+**Moyin Pasha**
+
+GitHub: https://github.com/moyin-pasha-69
+
+LinkedIn: https://www.linkedin.com/in/moyin-pasha-7a68aa330/
+
+---
+
+⭐ If you found this project helpful, don't forget to star the repository.
